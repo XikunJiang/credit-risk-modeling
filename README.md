@@ -1,5 +1,5 @@
-### Credit Risk Modeling Pipeline
-#Overview
+# Credit Risk Modeling Pipeline
+# Overview
 
 This repository contains a Python pipeline for credit risk prediction using machine learning. The project is based on the Home Credit Default Risk dataset and focuses on assessing the likelihood of a loan applicant defaulting. The pipeline includes data preprocessing, feature engineering, model training, evaluation, and result visualization.
 
@@ -33,13 +33,13 @@ Ordinal: NAME_EDUCATION_TYPE, REGION_RATING_CLIENT_W_CITY
 
 # Installation
 
-# Prerequisites
+Prerequisites
 
 Ensure you have Python installed (>=3.7) and install the required dependencies:
 
 pip install pandas numpy scikit-learn xgboost matplotlib seaborn joblib
 
-# Usage
+Usage
 
 Clone the repository:
 
@@ -60,7 +60,7 @@ Prediction Results (*_predictions.csv)
 
 Trained Models (*_model.pkl)
 
-# Results
+Results
 
 Accuracy & Performance Metrics: The model performance is evaluated using accuracy, precision, recall, and F1-score.
 
