@@ -68,7 +68,7 @@ preprocessor = ColumnTransformer([
 models = {
     'Logistic Regression': LogisticRegression(max_iter=1000),
     'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-    'XGBoost': XGBClassifier(use_label_encoder=False, eval_metric='logloss') #uses LabelEncoder by default to convert category values.
+    'XGBoost': XGBClassifier(use_label_encoder=False, eval_metric='logloss') # Use LabelEncoder by default to convert category values.
 }
 
 # Train-test split
