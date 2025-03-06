@@ -51,6 +51,10 @@ ordinal_encoder = OrdinalEncoder(handle_unknown='use_encoded_value', unknown_val
 
 # Standardization
 scaler = StandardScaler()
+# If the dataset has a strongly skewed distribution, use RobustScaler to reduce the impact of extreme values ​​on the model.
+# from sklearn.preprocessing import RobustScaler
+# scaler = RobustScaler()
+
 
 # Define column transformer
 preprocessor = ColumnTransformer([
