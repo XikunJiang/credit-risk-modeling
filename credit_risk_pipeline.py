@@ -44,8 +44,8 @@ num_imputer = SimpleImputer(strategy='median')
 cat_imputer = SimpleImputer(strategy='most_frequent')
 ord_imputer = SimpleImputer(strategy='most_frequent')
 
-# Encoding
-one_hot_encoder = OneHotEncoder(handle_unknown='ignore')
+# Encoding, drop='first' to avoid Multicollinearity
+one_hot_encoder = OneHotEncoder(handle_unknown='ignore', drop='first')
 ordinal_encoder = OrdinalEncoder()
 
 # Standardization
@@ -120,7 +120,14 @@ for name, model in models.items():
     evaluate_model(model, name)
 
 # Hyperparameter tuning for Random Forest
-param_grid = {'classifier__n_estimators': [50, 100, 200]}
+param_grid = {
+    'classifier__n_estimators': [50, 100, 200],
+    'classifier__max_depth': [3, 5, 10],
+    'classifier__min_samples_split': [2, 5, 10],
+    'classifier__min_samples_leaf': [1, 2, 4]
+}
+
+
 grid_search = GridSearchCV(Pipeline([
     ('preprocessor', preprocessor),
     ('classifier', RandomForestClassifier(random_state=42))
