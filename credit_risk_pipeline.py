@@ -71,7 +71,7 @@ models = {
     'XGBoost': XGBClassifier(use_label_encoder=False, eval_metric='logloss') # Use LabelEncoder by default to convert category values.
 }
 
-# Train-test split
+# Train-test split, divide the data according to the category ratio of the target variable.
 X_train, X_test, y_train, y_test = train_test_split(
     data.drop(columns=[target]), data[target], test_size=0.2, random_state=42, stratify=data[target]
 )
