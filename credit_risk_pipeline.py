@@ -44,9 +44,10 @@ num_imputer = SimpleImputer(strategy='median')
 cat_imputer = SimpleImputer(strategy='most_frequent')
 ord_imputer = SimpleImputer(strategy='most_frequent')
 
-# Encoding, drop='first' to avoid Multicollinearity
+# Encoding, drop='first' to avoid Multicollinearity.
+# handle_unknown: When there are categories in the test data that are not in the training data, no error is thrown.
 one_hot_encoder = OneHotEncoder(handle_unknown='ignore', drop='first')
-ordinal_encoder = OrdinalEncoder()
+ordinal_encoder = OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)
 
 # Standardization
 scaler = StandardScaler()
