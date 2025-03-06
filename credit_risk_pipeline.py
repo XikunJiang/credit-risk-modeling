@@ -42,6 +42,7 @@ target = 'TARGET'
 # Handle missing values
 num_imputer = SimpleImputer(strategy='median')
 cat_imputer = SimpleImputer(strategy='most_frequent')
+ord_imputer = SimpleImputer(strategy='most_frequent')
 
 # Encoding
 one_hot_encoder = OneHotEncoder(handle_unknown='ignore')
@@ -54,8 +55,9 @@ scaler = StandardScaler()
 preprocessor = ColumnTransformer([
     ('num', Pipeline([('imputer', num_imputer), ('scaler', scaler)]), numerical_cols),
     ('cat', Pipeline([('imputer', cat_imputer), ('onehot', one_hot_encoder)]), categorical_cols),
-    ('ord', ordinal_encoder, ordinal_cols)
+    ('ord', Pipeline([('imputer', ord_imputer), ('encoder', ordinal_encoder)]), ordinal_cols)  
 ])
+
 
 # Define models
 models = {
